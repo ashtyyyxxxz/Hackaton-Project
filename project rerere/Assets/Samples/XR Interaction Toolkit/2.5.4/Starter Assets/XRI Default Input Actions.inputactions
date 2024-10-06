@@ -1120,6 +1120,116 @@
             ]
         },
         {
+            "name": "XRI LeftHand Animations",
+            "id": "2bed1400-17d4-47d3-a2ba-564c4a7a9e4f",
+            "actions": [
+                {
+                    "name": "Index Finger In",
+                    "type": "Button",
+                    "id": "279ed1c2-e0ac-48aa-94c4-c8cd324fe69a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Index Finger ",
+                    "type": "Value",
+                    "id": "eb307331-0852-4103-af2c-13ccc3520d86",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Thumbs Flat",
+                    "type": "Button",
+                    "id": "c9ad9586-6e06-4abc-b74d-716c51643393",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Grip",
+                    "type": "Value",
+                    "id": "dfa0f0a2-34bd-4931-9849-52b7be32826c",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "31494694-7811-4776-b8cb-0286cdf744f6",
+                    "path": "<XRController>{LeftHand}/triggerTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Index Finger In",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "284ec36c-7370-464b-a9aa-6aa358329c28",
+                    "path": "<XRController>{LeftHand}/thumbstickTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Thumbs Flat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3af64b4e-a16d-47be-9d63-e6c84dd840b7",
+                    "path": "<XRController>{LeftHand}/primaryTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Thumbs Flat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "feff1029-e715-45d7-821f-5c14d12d4942",
+                    "path": "<XRController>{LeftHand}/secondaryTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Thumbs Flat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7af09650-6d8c-4090-a60b-10cf32599fa1",
+                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ab2d5fb-df93-4451-bc16-ff92f96ffc6a",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Index Finger ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "XRI RightHand",
             "id": "7960f8ef-2bf3-4281-aecc-4c03809d6c8c",
             "actions": [
@@ -1910,6 +2020,116 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Snap Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "XRi RightHand Animations",
+            "id": "74167336-fc09-4da3-94cf-45fb03653e37",
+            "actions": [
+                {
+                    "name": "Index Finger In",
+                    "type": "Button",
+                    "id": "9cfacfde-cde3-4fae-9179-540175b988b0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Index Finger",
+                    "type": "Value",
+                    "id": "45d986e6-14bb-4a09-94f6-d71ca84b9fc6",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Thumbs Flat",
+                    "type": "Button",
+                    "id": "5b85abc6-802b-4470-a929-567dbe998195",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Grip",
+                    "type": "Value",
+                    "id": "2c65fa58-70c7-4ef5-8f73-4975318c2d00",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a5f6f80b-4b9d-45f1-ab1f-df0024bce5e4",
+                    "path": "<XRController>{RightHand}/triggerTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Index Finger In",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c4c0cf59-c2fc-44ec-93b9-58f02e63a674",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Index Finger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f85a1fa-3600-4e82-9b7b-914e6601d9fd",
+                    "path": "<XRController>{RightHand}/thumbstickTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Thumbs Flat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60b52ebe-260d-4aa9-b04d-793037ed10b8",
+                    "path": "<XRController>{RightHand}/primaryTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Thumbs Flat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c742219-2402-4ddc-a529-c3fc6d50abee",
+                    "path": "<XRController>{RightHand}/secondaryTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Thumbs Flat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "04c100fe-5230-48a7-9aa0-03ba187d2106",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Grip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
