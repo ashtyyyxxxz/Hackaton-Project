@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using UnityEditor.SceneTemplate;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -87,7 +88,6 @@ public class Dialogue : MonoBehaviour
 
     private IEnumerator StartDialogueRoutine()
     {
-        dialogueText.text = string.Empty;
 
         foreach(char c in dialogueLines[currentLine])
         {
@@ -102,9 +102,10 @@ public class Dialogue : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            dialogueText.text = string.Empty;
             inZone = true;
             animator.SetTrigger("Appear");
-            StartDialogue();
+            Invoke(nameof(StartDialogue), 1f);
         }
     }
 
@@ -112,6 +113,9 @@ public class Dialogue : MonoBehaviour
     {
         inZone = false;
         animator.SetTrigger("Disappear");
+        keyboardClick.Stop();
+
+        StopAllCoroutines();
     }
 
 }
