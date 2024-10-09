@@ -10,6 +10,7 @@ public class Dialogue : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialogueCanvas;
+    [SerializeField] private AudioSource keyboardClick;
 
     private void StartDialogue()
     {
@@ -23,6 +24,8 @@ public class Dialogue : MonoBehaviour
 
         foreach(char c in dialogueLine)
         {
+            keyboardClick.pitch = Random.Range(0.8f, 1.7f);
+            keyboardClick.Play();
             dialogueText.text += c;
             yield return new WaitForSeconds(dialogueShowCharCd);
         }
