@@ -63,11 +63,8 @@ public class Dialogue : MonoBehaviour
         {
             StopAllCoroutines();
             speechSource.Stop();
-<<<<<<< Updated upstream
             dialogueText.text = dialogueLines[currentLine - 1].line;
-=======
             dialogueText.text = dialogueLines[currentLine].line;
->>>>>>> Stashed changes
             return;
         }
         StartDialogue();
