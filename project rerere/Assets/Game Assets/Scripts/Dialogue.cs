@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEditor.SceneTemplate;
 using UnityEngine;
@@ -13,8 +14,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private float dialogueShowCharCd = 0.07f;
 
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private AudioSource keyboardClickSource;
-    [SerializeField] private AudioSource speechSource;
+    private AudioSource keyboardClickSource;
+    private AudioSource speechSource;
 
     [Header("Actions")]
     [SerializeField] private InputActionReference aButtonAction;
@@ -22,10 +23,13 @@ public class Dialogue : MonoBehaviour
 
     private Animator animator;
     private bool inZone;
+    private int currentLine;
 
 
     private void Awake()
     {
+        keyboardClickSource = GetComponent<AudioSource>();
+        speechSource = GetComponentInChildren<AudioSource>();
         currentLine = 0;
         animator = GetComponentInChildren<Animator>();
     }
@@ -49,22 +53,22 @@ public class Dialogue : MonoBehaviour
 
     private void BButton(InputAction.CallbackContext obj)
     {
-        if (inZone == false) PrevLine();
+        if (inZone) PrevLine();
     }
-
-    private int currentLine;
 
     private void NextLine()
     {
-        if (dialogueText.text != dialogueLines[currentLine].line)
+        currentLine++;
+        if (currentLine > dialogueLines.Length) return;
+
+        if (dialogueText.text != dialogueLines[currentLine-1].line)
         {
             StopAllCoroutines();
             speechSource.Stop();
-            dialogueText.text = dialogueLines[currentLine].line;
+            dialogueText.text = dialogueLines[currentLine-1].line;
             return;
         }
-        currentLine++;
-        if (currentLine > dialogueLines.Length) return;
+
         StartDialogue();
     }
 
@@ -79,21 +83,28 @@ public class Dialogue : MonoBehaviour
         }
 
         currentLine--;
-        if (currentLine < 0) return;
+        if (currentLine < 0)
+        {
+            currentLine++;
+            return;
+        }
         StartDialogue();
-        
     }
 
     private void StartDialogue()
     {
         StopAllCoroutines();
         StartCoroutine(StartDialogueRoutine());
-        speechSource.clip = dialogueLines[currentLine].clip;
-        speechSource.Play();
+        if (dialogueLines[currentLine].clip != null)
+        {
+            speechSource.clip = dialogueLines[currentLine].clip;
+            speechSource.Play();
+        }
     }
 
     private IEnumerator StartDialogueRoutine()
     {
+        dialogueText.text = string.Empty;
 
         foreach (char c in dialogueLines[currentLine].line)
         {
