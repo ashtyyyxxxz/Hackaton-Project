@@ -14,8 +14,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private float dialogueShowCharCd = 0.07f;
 
     [SerializeField] private TextMeshProUGUI dialogueText;
-    private AudioSource keyboardClickSource;
-    private AudioSource speechSource;
+    [SerializeField] private AudioSource keyboardClickSource;
+    [SerializeField] private AudioSource speechSource;
 
     [Header("Actions")]
     [SerializeField] private InputActionReference aButtonAction;
@@ -28,8 +28,6 @@ public class Dialogue : MonoBehaviour
 
     private void Awake()
     {
-        keyboardClickSource = GetComponent<AudioSource>();
-        speechSource = GetComponentInChildren<AudioSource>();
         currentLine = 0;
         animator = GetComponentInChildren<Animator>();
     }
@@ -61,14 +59,13 @@ public class Dialogue : MonoBehaviour
         currentLine++;
         if (currentLine > dialogueLines.Length) return;
 
-        if (dialogueText.text != dialogueLines[currentLine-1].line)
+        if (dialogueText.text != dialogueLines[currentLine - 1].line)
         {
             StopAllCoroutines();
             speechSource.Stop();
-            dialogueText.text = dialogueLines[currentLine-1].line;
+            dialogueText.text = dialogueLines[currentLine - 1].line;
             return;
         }
-
         StartDialogue();
     }
 
@@ -88,6 +85,7 @@ public class Dialogue : MonoBehaviour
             currentLine++;
             return;
         }
+
         StartDialogue();
     }
 
@@ -95,11 +93,9 @@ public class Dialogue : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(StartDialogueRoutine());
-        if (dialogueLines[currentLine].clip != null)
-        {
-            speechSource.clip = dialogueLines[currentLine].clip;
-            speechSource.Play();
-        }
+
+        speechSource.clip = dialogueLines[currentLine].clip;
+        speechSource.Play();
     }
 
     private IEnumerator StartDialogueRoutine()
@@ -119,6 +115,7 @@ public class Dialogue : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+
             dialogueText.text = string.Empty;
             inZone = true;
             animator.SetTrigger("Appear");
@@ -131,6 +128,7 @@ public class Dialogue : MonoBehaviour
         inZone = false;
         animator.SetTrigger("Disappear");
         keyboardClickSource.Stop();
+        speechSource.Stop();
 
         StopAllCoroutines();
     }
