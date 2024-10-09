@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEditor.SceneTemplate;
@@ -8,12 +9,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Collider))]
 public class Dialogue : MonoBehaviour
 {
-    [SerializeField] private string[] dialogueLines;
+    [SerializeField] private DialogueLine[] dialogueLines;
     [SerializeField] private float dialogueShowCharCd = 0.07f;
 
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private GameObject dialogueCanvas;
-    [SerializeField] private AudioSource keyboardClick;
+    [SerializeField] private AudioSource keyboardClickSource;
+    [SerializeField] private AudioSource speechSource;
 
     [Header("Actions")]
     [SerializeField] private InputActionReference aButtonAction;
@@ -43,7 +44,7 @@ public class Dialogue : MonoBehaviour
 
     private void AButton(InputAction.CallbackContext obj)
     {
-        if(inZone) NextLine();
+        if (inZone) NextLine();
     }
 
     private void BButton(InputAction.CallbackContext obj)
@@ -55,44 +56,49 @@ public class Dialogue : MonoBehaviour
 
     private void NextLine()
     {
-        if(dialogueText.text != dialogueLines[currentLine])
+        if (dialogueText.text != dialogueLines[currentLine].line)
         {
             StopAllCoroutines();
-            dialogueText.text = dialogueLines[currentLine];
+            speechSource.Stop();
+            dialogueText.text = dialogueLines[currentLine].line;
             return;
         }
         currentLine++;
         if (currentLine > dialogueLines.Length) return;
         StartDialogue();
     }
-    
+
     private void PrevLine()
     {
-        if (dialogueText.text != dialogueLines[currentLine])
+        if (dialogueText.text != dialogueLines[currentLine].line)
         {
             StopAllCoroutines();
-            dialogueText.text = dialogueLines[currentLine];
+            speechSource.Stop();
+            dialogueText.text = dialogueLines[currentLine].line;
             return;
         }
 
         currentLine--;
-        if(currentLine < 0) return;
+        if (currentLine < 0) return;
         StartDialogue();
+        
     }
 
     private void StartDialogue()
     {
         StopAllCoroutines();
         StartCoroutine(StartDialogueRoutine());
+        speechSource.clip = dialogueLines[currentLine].clip;
+        speechSource.Play();
     }
 
     private IEnumerator StartDialogueRoutine()
     {
 
-        foreach(char c in dialogueLines[currentLine])
+        foreach (char c in dialogueLines[currentLine].line)
         {
-            keyboardClick.pitch = Random.Range(0.8f, 1.7f);
-            keyboardClick.Play();
+            keyboardClickSource.pitch = UnityEngine.Random.Range(1, 2);
+            keyboardClickSource.Play();
             dialogueText.text += c;
             yield return new WaitForSeconds(dialogueShowCharCd);
         }
@@ -113,9 +119,16 @@ public class Dialogue : MonoBehaviour
     {
         inZone = false;
         animator.SetTrigger("Disappear");
-        keyboardClick.Stop();
+        keyboardClickSource.Stop();
 
         StopAllCoroutines();
     }
 
+}
+
+[Serializable]
+public class DialogueLine
+{
+    public string line;
+    public AudioClip clip;
 }
