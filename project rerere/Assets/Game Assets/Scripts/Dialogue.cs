@@ -19,6 +19,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private InputActionReference bButtonAction;
 
     private Animator animator;
+    private bool inZone;
 
 
     private void Awake()
@@ -41,12 +42,12 @@ public class Dialogue : MonoBehaviour
 
     private void AButton(InputAction.CallbackContext obj)
     {
-        NextLine();
+        if(inZone) NextLine();
     }
 
     private void BButton(InputAction.CallbackContext obj)
     {
-        PrevLine();
+        if (inZone == false) PrevLine();
     }
 
     private int currentLine;
@@ -101,6 +102,7 @@ public class Dialogue : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            inZone = true;
             animator.SetTrigger("Appear");
             StartDialogue();
         }
@@ -108,6 +110,7 @@ public class Dialogue : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        inZone = false;
         animator.SetTrigger("Disappear");
     }
 
