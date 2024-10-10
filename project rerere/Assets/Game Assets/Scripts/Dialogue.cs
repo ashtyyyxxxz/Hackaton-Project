@@ -59,7 +59,11 @@ public class Dialogue : MonoBehaviour
     private void NextLine()
     {
         currentLine++;
-        if (currentLine > dialogueLines.Length) return;
+        if (currentLine > dialogueLines.Length)
+        {
+            currentLine--;
+            return;
+        }
 
         if (dialogueText.text != dialogueLines[currentLine - 1].line)
         {
