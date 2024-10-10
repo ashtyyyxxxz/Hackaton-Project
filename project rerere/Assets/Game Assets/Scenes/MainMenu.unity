@@ -514,12 +514,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0415\u0412\u0415\u0420\u041E\u042F\u0422\u041D\u042B\u0415 \u041F\u0420\u0415\u041A\u041B\u042E\u0427\u0415\u041D\u0418\u042F
+  m_text: "\u0412\u0415\u041B\u0418\u041A\u041E\u0415 \u041F\u0420\u0418\u041A\u041B\u042E\u0427\u0415\u041D\u0418\u0415
     \u041D\u0410 \u0423\u0420\u0410\u041B\u042C\u0421\u041A\u041E\u041C \u0417\u0410\u0412\u041E\u0414\u0415
     \u0413\u0420\u0410\u0416\u0414\u0410\u041D\u0421\u041A\u041E\u0419 \u0410\u0412\u0418\u0410\u0426\u0418\u0418"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b43485e7f421d564d8b65d6139b34bc2, type: 2}
-  m_sharedMaterial: {fileID: -8492079289543612509, guid: b43485e7f421d564d8b65d6139b34bc2,
+  m_fontAsset: {fileID: 11400000, guid: 81d013d957adbb34886bfcb338077f06, type: 2}
+  m_sharedMaterial: {fileID: 8110480319929443737, guid: 81d013d957adbb34886bfcb338077f06,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -544,13 +544,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7.6
-  m_fontSizeBase: 7.6
+  m_fontSize: 15.83
+  m_fontSizeBase: 15.83
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 5.6324883, z: 0, w: 0}
+  m_margin: {x: 0, y: -26.168354, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -789,8 +789,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0435\u0440\u0435\u0432\u0435\u0441\u0442\u0438\u0441\u044C \u0432
-    \u0438\u0433\u0440\u0443"
+  m_text: "\u041D\u0430\u0447\u0430\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b43485e7f421d564d8b65d6139b34bc2, type: 2}
   m_sharedMaterial: {fileID: -8492079289543612509, guid: b43485e7f421d564d8b65d6139b34bc2,
@@ -926,7 +925,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0418\u0437\u0431\u0430\u0432\u0438\u0442\u044C\u0441\u044F"
+  m_text: "\u0412\u044B\u0439\u0442\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b43485e7f421d564d8b65d6139b34bc2, type: 2}
   m_sharedMaterial: {fileID: -8492079289543612509, guid: b43485e7f421d564d8b65d6139b34bc2,
@@ -1412,7 +1411,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931979082}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5d018c85998954349828cd771d9f704c, type: 2}
   m_CullingMode: 0
