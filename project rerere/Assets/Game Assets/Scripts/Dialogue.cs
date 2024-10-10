@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 // better use ready prefab
@@ -24,6 +24,9 @@ public class Dialogue : MonoBehaviour
     private bool inZone;
     private int currentLine;
 
+    [Header("Events")]
+    public UnityEvent onNextDialogue;
+    public UnityEvent onPrevDialogue;
 
     private void Awake()
     {
@@ -67,6 +70,7 @@ public class Dialogue : MonoBehaviour
             return;
         }
         StartDialogue();
+        onNextDialogue?.Invoke();
     }
 
     private void PrevLine()
@@ -85,8 +89,8 @@ public class Dialogue : MonoBehaviour
             currentLine++;
             return;
         }
-
         StartDialogue();
+        onPrevDialogue?.Invoke();
     }
 
     private void StartDialogue()
