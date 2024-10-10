@@ -166,6 +166,12 @@ MonoBehaviour:
     type: 3}
   bButtonAction: {fileID: -556500645700727503, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  onNextDialogue:
+    m_PersistentCalls:
+      m_Calls: []
+  onPrevDialogue:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &5787229351970176538
 AudioSource:
   m_ObjectHideFlags: 0
@@ -936,9 +942,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: "\u041F\u0440\u0438\u043C\u0435\u0440 \u0434\u0438\u0430\u043B\u043E\u0433\u043E\u0432\u043E\u0439
+    \u0441\u0438\u0441\u0442\u0435\u043C\u044B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b43485e7f421d564d8b65d6139b34bc2, type: 2}
   m_sharedMaterial: {fileID: -8492079289543612509, guid: b43485e7f421d564d8b65d6139b34bc2,
@@ -966,7 +971,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 18.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
