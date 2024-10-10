@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Guide : MonoBehaviour
 {
@@ -6,17 +7,20 @@ public class Guide : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    private NavMeshAgent agent;
+
     private int currentPoint = 0;
 
     private void Awake()
     {
+        agent = GetComponent<NavMeshAgent>();
+
         WalkToPoint();
     }
 
     private void WalkToPoint()
     {
-        Vector3.MoveTowards(transform.position, pointsOfInterest[currentPoint].position,1);
-        transform.LookAt(pointsOfInterest[currentPoint].position);
+        agent.SetDestination(pointsOfInterest[currentPoint].position);
     }
 
     public void GoToNextPoint()
