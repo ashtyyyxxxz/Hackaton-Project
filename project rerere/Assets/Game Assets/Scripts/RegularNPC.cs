@@ -48,7 +48,7 @@ public class RegularNPC : MonoBehaviour
 
     private Vector3 GetRandomPosition()
     {
-        Vector3 position = new Vector3(Random.Range(-100f, 100f), 0, Random.Range(-100f, 100f));
+        Vector3 position = new Vector3(Random.Range(-30f, 30f), 0, Random.Range(-60f, 10f));
         NavMeshHit hit;
         NavMesh.SamplePosition(position, out hit, 100, 1);
         position = hit.position;

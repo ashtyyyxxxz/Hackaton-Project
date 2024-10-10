@@ -5,14 +5,14 @@ public class EngineSelfRepair : MonoBehaviour
     [SerializeField] private ParticleSystem mergeDetailsParticles;
     [SerializeField] private AudioSource mergeDetailsSound;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("Detail"))
+        if (other.CompareTag("Detail"))
         {
-            mergeDetailsParticles.transform.position = collision.transform.position;
+            mergeDetailsParticles.transform.position = other.transform.position;
             mergeDetailsParticles.Play();
             mergeDetailsSound.Play();
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
