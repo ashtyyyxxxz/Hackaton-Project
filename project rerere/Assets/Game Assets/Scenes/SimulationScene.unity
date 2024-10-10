@@ -8744,6 +8744,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2586526338538127480, guid: 974570993689c1848a8a4a45d5cecd0c,
+        type: 3}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290907118360220285, guid: 974570993689c1848a8a4a45d5cecd0c,
+        type: 3}
+      propertyPath: speech.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290907118360220285, guid: 974570993689c1848a8a4a45d5cecd0c,
+        type: 3}
+      propertyPath: speech.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c2f5974ce70ed424d9126defaa9c6b3e, type: 3}
+    - target: {fileID: 3290907118360220285, guid: 974570993689c1848a8a4a45d5cecd0c,
+        type: 3}
+      propertyPath: speech.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 67715ad8b5a4b144a92abb1631a82847, type: 3}
+    - target: {fileID: 3290907118360220285, guid: 974570993689c1848a8a4a45d5cecd0c,
+        type: 3}
+      propertyPath: speech.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 489594a3a5451c4488fadda6449c12cd, type: 3}
     - target: {fileID: 3290907118360220285, guid: 974570993689c1848a8a4a45d5cecd0c,
         type: 3}
       propertyPath: pointsOfInterest.Array.size

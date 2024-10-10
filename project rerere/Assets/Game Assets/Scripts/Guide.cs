@@ -37,17 +37,25 @@ public class Guide : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
 
         WalkToPoint();
-        audioSource.clip = speech[currentPoint];
-        audioSource.Play();
     }
 
     private void Update()
     {
         if (Vector3.Distance(transform.position, pointsOfInterest[currentPoint].position) <= 0.5f)
         {
-            guideAnimator.SetBool("IsWalking", false);
+            if (audioSource.isPlaying)
+            {
+                guideAnimator.SetBool("IsTalking",true);
+                guideAnimator.SetBool("IsWalking", false);
+            }
+            else
+            {
+                guideAnimator.SetBool("IsWalking", false);
+                guideAnimator.SetBool("IsTalking", false);
+            }
         }
     }
 
@@ -55,6 +63,10 @@ public class Guide : MonoBehaviour
     {
         agent.SetDestination(pointsOfInterest[currentPoint].position);
         guideAnimator.SetBool("IsWalking", true);
+        guideAnimator.SetBool("IsTalking", false);
+
+        audioSource.clip = speech[currentPoint];
+        audioSource.Play();
     }
 
     public void GoToNextPoint()
@@ -65,8 +77,6 @@ public class Guide : MonoBehaviour
             currentPoint--;
             return;
         }
-        audioSource.clip = speech[currentPoint];
-        audioSource.Play();
         WalkToPoint();
     }
 
