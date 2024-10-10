@@ -15,14 +15,9 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.loadedSceneCount != 0)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             StartTimer();
-        }
-        else
-        {
-            StopAllCoroutines();
-            timerText.gameObject.SetActive(false);
         }
     }
 

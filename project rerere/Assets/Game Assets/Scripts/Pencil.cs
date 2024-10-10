@@ -5,6 +5,7 @@ public class Pencil : MonoBehaviour
 {
     [SerializeField] private Material completedDrawingMat; 
     [SerializeField] private ParticleSystem pencilParticles;
+    [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private GameObject engine;
 
@@ -25,6 +26,7 @@ public class Pencil : MonoBehaviour
         if (other.CompareTag("Drawing"))
         {
             pencilParticles.Play();
+            audioSource.Play();
             StartCoroutine(StartTimer(other.GetComponent<MeshRenderer>()));
         }
     }
@@ -32,5 +34,6 @@ public class Pencil : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         pencilParticles.Stop();
+        audioSource.Stop();
     }
 }
